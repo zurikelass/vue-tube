@@ -3,6 +3,6 @@ import MainLayout from '../layouts/mainLayout.vue'
 </script>
 <template>
     <MainLayout>
-        <div>Home Page</div>
+        <div>Examples Page</div>
     </MainLayout>
 </template>
