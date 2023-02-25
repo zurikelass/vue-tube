@@ -28,8 +28,12 @@ const navigationModule = {
                     routeName: "Blog"
                 },
                 {
-                    title: "Blog",
-                    routeName: "Blog"
+                    title: "Music",
+                    routeName: "Music"
+                },
+                {
+                    title: "Music",
+                    routeName: "Music"
                 },
             ] 
         }
