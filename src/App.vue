@@ -1,5 +1,6 @@
-// <script>
-
+ <script>
+ import HorizontalMenu from './components/navigation/HorizontalMenu.vue'
+ import Sidebar from './components/navigation/Sidebar.vue'
 </script>
 
 <template>

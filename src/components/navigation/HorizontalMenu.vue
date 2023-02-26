@@ -2,7 +2,6 @@
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
-
 const store = useStore();
 
 const topMenuLinks = computed(() => store.getters["navigation/getTopMenu"]);
@@ -45,26 +44,16 @@ onMounted(() => {});
 
       <div class="logo ml-6">
         <div class="w-25">
-          <div>
-            <router-link
-              v-for="link in topMenuLinks"
-              :key="link.index"
-              :class="{ 'mr-4': lastItem(link) }"
-              :to="{ name: link.routeName }"
-            >
-              {{ link.title }}
-            </router-link>
-          </div>
           <svg
-            viewBox="0 0 90 20"
+            viewBox="0 0 100 30"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
             class="style-scope yt-icon"
             style="
               pointer-events: none;
               display: block;
-              width: 100%;
-              height: 100%;
+              width: 30%;
+              height: 50%;
             "
           >
             <g
@@ -124,14 +113,8 @@ onMounted(() => {});
         </div>
       </div>
     </div>
-    <form
-      @submit="
-        ($event) => {
-          $event.preventDefault();
-          handleSubmit();
-        }
-      "
-    >
+
+    <form>
       <div class="middle flex items-center">
         <div
           class="search border dark:border-dark-100 h-full flex items-center"
@@ -225,8 +208,8 @@ onMounted(() => {});
               style="
                 pointer-events: none;
                 display: block;
-                width: 100%;
-                height: 100%;
+                width: 30%;
+                height: 30%;
               "
             >
               <g class="stroke-current fill-current style-scope yt-icon">
@@ -320,5 +303,15 @@ onMounted(() => {});
         class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4"
       ></div>
     </div>
+  </div>
+  <div>
+    <router-link
+      v-for="link in topMenuLinks"
+      :key="link.index"
+      :class="{ 'mr-4': lastItem(link) }"
+      :to="{ name: link.routeName }"
+    >
+      {{ link.title }}
+    </router-link>
   </div>
 </template>

@@ -1,4 +1,5 @@
-<script>
+<script setup>
+
 </script>
 <template>
       <div class="bg-white dark:bg-dark-600  dark:border-dark-100 dark:text-gray-100 fixed left-0 z-20 top-0 h-screen w-20 border-r flex flex-col pt-12">
