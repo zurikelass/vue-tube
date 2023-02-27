@@ -305,13 +305,10 @@ onMounted(() => {});
     </div>
   </div>
   <div>
-    <router-link
-      v-for="link in topMenuLinks"
-      :key="link.index"
-      :class="{ 'mr-4': lastItem(link) }"
-      :to="{ name: link.routeName }"
-    >
-      {{ link.title }}
-    </router-link>
+    <div class="text-sm lg:flex-grow">
+            <router-link v-for="link in topMenuLinks" :key="link.index" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white" :class="{ 'mr-4': lastItem(link) }" :to="{ name: link.routeName }">
+                {{ link.title }}
+            </router-link>
+  </div>
   </div>
 </template>
