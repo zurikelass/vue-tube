@@ -1,12 +1,12 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useStore } from 'vuex' 
 
 const store= useStore()
 
-const videos = store.getters['videos/getVideos']
+const videos =computed(() => store.getters['videos/getfilteredVideos'])
 onMounted(() => {
-   
+  store.dispatch('videos/filterVideos', null)
 })
 </script>
 <template>

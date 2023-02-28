@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from "vue";
+import {  computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import Search from "./Search.vue"
 const store = useStore();
