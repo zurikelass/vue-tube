@@ -1,16 +1,13 @@
-<script>
-export default {
-  data() {
-    return {
-      searchQuery: "",
-    };
-  },
-  watch: {
-    searchQuery() {
-      this.$emit("search", this.searchQuery.trim());
-    },
-  },
-};
+<script setup>
+ import { watch } from 'vue'
+ import { useStore } from 'vuex';
+ 
+
+ const store = useStore()
+ const searchQuery = computed ()
+ watch ((searchQuery)=> {
+ console.log(searchQuery)})
+ 
 </script>
 
 <template>

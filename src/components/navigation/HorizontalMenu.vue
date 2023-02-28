@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
-
+import Search from "./Search.vue"
 const store = useStore();
 
 const topMenuLinks = computed(() => store.getters["navigation/getTopMenu"]);
@@ -116,7 +116,9 @@ onMounted(() => {});
 
     <form>
       <div class="middle flex items-center">
-        <div
+       <Search/>
+
+        <!-- <div
           class="search border dark:border-dark-100 h-full flex items-center"
         >
           <div class="icon-left w-8 h-8 p-1">
@@ -195,7 +197,7 @@ onMounted(() => {});
               </svg>
             </div>
           </button>
-        </div>
+        </div> -->
         <button
           class="hover:bg-gray-200 bg-gray-50 dark:bg-dark-900 dark:hover:bg-dark-600 rounded-full ml-2"
         >

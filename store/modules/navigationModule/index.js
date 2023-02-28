@@ -12,24 +12,12 @@ const navigationModule = {
                     routeName: "Examples"
                 },
                 {
-                    title: "Blog",
-                    routeName: "Blog"
+                    title: "Home",
+                    routeName: "Home"
                 },
                 {
                     title: "Blog",
                     routeName: "Blog"
-                },
-                {
-                    title: "Blog",
-                    routeName: "Blog"
-                },
-                {
-                    title: "Blog",
-                    routeName: "Blog"
-                },
-                {
-                    title: "Music",
-                    routeName: "Music"
                 },
                 {
                     title: "Music",

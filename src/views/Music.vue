@@ -1,8 +1,9 @@
 <script setup>
 import MainLayout from '../layouts/mainLayout.vue'
+import VideoList from '../components/VideoList.vue'
 </script>
 <template>
     <MainLayout>
-        <div>Music</div>
+        <VideoList/>
     </MainLayout>
 </template>
