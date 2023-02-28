@@ -1,19 +1,20 @@
-<script>
-export default {
-  props: {
-    videos: {
-      type: Array,
-      required: true,
-    },
-  },
-};
+<script setup>
+import { onMounted } from 'vue'
+import { useStore } from 'vuex' 
+
+const store= useStore()
+
+const videos=store.getter['videos/getVideos']
+onMounted(() => {
+    console.log (videos)
+})
 </script>
 <template>
   <ul>
-    <li v-for="video in videos" :key="video.id">
-      <h2>{{ video.title }}</h2>
-      <p>{{ video.description }}</p>
-      <video :src="video.url" controls></video>
+    <li v-for="videos in videos" :key="videos.id">
+      <h2>{{ videos.title }}</h2>
+      <p>{{ videos.description }}</p>
+      <video :src="videos.url" controls></video>
     </li>
   </ul>
 </template>

@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
+
 import navigationPlugin from './plugins/navigationPlugin'
+import videosPlugin from './plugins/videosPlugins'
 
 
 const store = createStore({
-    plugins: [ navigationPlugin ]
+    plugins: [ navigationPlugin, videosPlugin,  ]
 })
 
 
