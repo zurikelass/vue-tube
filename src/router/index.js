@@ -29,10 +29,25 @@ const router = createRouter({
             component: () => import('../views/Music.vue')
         },
         {
-            path: "/comedy",
-            name: "Comedy",
-            component: () => import('../views/Comedy.vue')
-        }
+            path: "/Settings",
+            name: "Settings",
+            component: () => import('../views/Settings.vue'),
+            children:[
+                {
+                    path: "/user",
+                    name:"/User",
+                    component: () => import ('../views/User.vue')
+                },
+                {
+                    path:"/userupdate",
+                    name: "/UserUpdate",
+                    component: ()=> import ('../views/UserUpdate.vue')
+                }
+                
+                
+            ]
+        },
+        
     ]
 })
 
