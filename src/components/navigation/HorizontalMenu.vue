@@ -2,14 +2,17 @@
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import Search from "./Search.vue";
-import Settings from "../../views/Settings.vue";
+
 const store = useStore();
 
-const topMenuLinks = computed(() => store.getters["navigation/getTopMenu"]);
+const topMenuLinks = computed(() => store.getters["videos/getCategories"]);
+const changeTag = (tag) => store.commit("videos/changeTag", tag)
 
 const lastItem = function (item) {
   return [...topMenuLinks.value].indexOf(item) !== [...topMenuLinks.value].length - 1;
 };
+
+const changeOpenStatus = () => store.commit("videos/changeOpenStatus");
 
 onMounted(() => {});
 </script>
@@ -19,7 +22,7 @@ onMounted(() => {});
   >
     <div class="left flex items-center pl-5">
       <button class="hover:bg-gray-200 dark:hover:bg-dark-800 rounded-full">
-        <div class="w-10 p-2">
+        <div class="w-10 p-2" @click="changeOpenStatus">
           <svg
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
@@ -189,22 +192,20 @@ onMounted(() => {});
         </div>
       </button>
 
-      <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4">
-      
-      </div>
+      <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4"></div>
     </div>
   </div>
   <div>
-    <div class="text-sm lg:flex-grow">
-      <router-link
+  </div>
+  <div class="text-sm lg:flex-grow p-[50px] text-center">
+      <button
         v-for="link in topMenuLinks"
         :key="link.index"
-        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+        class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
         :class="{ 'mr-4': lastItem(link) }"
-        :to="{ name: link.routeName }"
+        @click="changeTag(link)"
       >
-        {{ link.title }}
-      </router-link>
+        {{ link }}
+      </button>
     </div>
-  </div>
 </template>

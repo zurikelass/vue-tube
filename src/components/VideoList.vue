@@ -4,7 +4,7 @@ import { useStore } from 'vuex'
 
 const store= useStore()
 
-const videos =computed(() => store.getters['videos/getfilteredVideos'])
+const videos =computed(() => store.getters['videos/getVideosByTag'])
 onMounted(() => {
   store.dispatch('videos/filterVideos', null)
 })

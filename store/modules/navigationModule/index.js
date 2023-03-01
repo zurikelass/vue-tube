@@ -23,6 +23,15 @@ const navigationModule = {
                     title: "Music",
                     routeName: "Music"
                 },
+                {
+                   title: "Settings",
+                   routeName: "Settings"
+                },
+                {
+                    title: "Guns",
+                    routeName: "Guns"
+                 
+                },
             ] 
         }
     },

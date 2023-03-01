@@ -15,7 +15,7 @@ export default {
 </script>
 <template>
     <div class="card">
-      <div class="nickname">{{ nickname }}</div>
-      <div class="email">{{ email }}</div>
+      <div class="nickname">nickname</div>
+      <div class="email">email</div>
     </div>
   </template>
