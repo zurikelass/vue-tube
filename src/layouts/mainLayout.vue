@@ -10,7 +10,6 @@ import Sidebar from '../components/navigation/Sidebar.vue';
       <div
         class="catalogue grid grid-cols-3 lg:grid-cols-5 justify-start gap-4 p-4 pt-14 w-full h-full overflow-y-auto overflow-x-hidden">
         <slot />
-      
       </div>
     </div>
   </div>
