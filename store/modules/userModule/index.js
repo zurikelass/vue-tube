@@ -2,7 +2,7 @@ const user = {
   namespaced: true,
   state() {
     return {
-      authanticated: null,
+      verified: null,
       users: [
         {
           id: 1,
@@ -14,7 +14,7 @@ const user = {
   },
   getters: {
     verifiedUser(state) {
-      return state.authanticated;
+      return state.verified;
     },
   },
   mutations: {
