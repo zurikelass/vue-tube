@@ -9,6 +9,6 @@ import MainLayout from "../layouts/mainLayout.vue";
       <li><RouterLink :to="{ name: 'UserUpdate' }">User Info </RouterLink></li>
     </ul>
 
-    <RouterView />
+    <RouterView></RouterView>
   </MainLayout>
 </template>
