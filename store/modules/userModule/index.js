@@ -1,11 +1,12 @@
-const user = {
+const userModule = {
   namespaced: true,
   state() {
     return {
-      verified: null,
+      authenticated: null,
       users: [
         {
           id: 1,
+          name: 'zack',
           email: "zack@mail.com",
           password: "zack123",
         },
@@ -13,28 +14,35 @@ const user = {
     };
   },
   getters: {
-    verifiedUser(state) {
-      return state.verified;
+    authenticatedUser(state) {
+      return state.authenticated;
     },
   },
   mutations: {
-    VERIFY(state, payload) {
+    AUTHANTICATE(state, payload) {
       let user = state.user.filter((val) => val.email === payload.email);
       if (user.password === payload.password) {
-        state.verified = user;
+        state.authenticated= user
       }
     },
     REGISTER_NEW_USER(state, payload) {
       state.user.push(payload);
     },
+    UPDTAE_NEW_USER(state, payload){
+      state.user.find(user => state.authenticated.id === user.id).name = payload.name
+      state.user.find(user => state.authenticated.id === user.id).name = payload.email
+      state.user.find(user => state.authenticated.id === user.id).name = payload.password
+    }
   },
   actions: {
-    verify({ commit }, payload) {
+    AUTHANTICATE({ commit }, payload) {
       commit(VERIFY, payload);
     },
     register({ commit }, payload) {
       commit("REGISTER_NEW_USER", payload);
-      commit("VERIFY", payload);
+      commit("AUTHANTICATE", payload);
     },
   },
 };
+
+export default userModule;
