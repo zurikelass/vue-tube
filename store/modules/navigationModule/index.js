@@ -32,6 +32,10 @@ const navigationModule = {
                     routeName: "Guns"
                  
                 },
+                {
+                    title:"Users",
+                    routeName: "USers"
+                }
             ] 
         }
     },

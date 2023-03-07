@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-
+import { createRouter, createWebHistory, RouterView } from "vue-router";
+import Users from "../views/Users.vue"
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -33,6 +33,27 @@ const router = createRouter({
           name: "UserUpdate",
           component: () => import("../views/UserUpdate.vue"),
         },
+      ],
+    },
+    {
+      path: "/users",
+      name: "Users",
+      component: RouterView,
+      children: [
+        {
+          path: "users",
+            componenet:Users, 
+            children:[
+              {
+                path: "privateusers",
+                name: "PrivateUsers",
+                component: () => import("../views/PrivateUsers.vue"),
+              },
+            
+            ]
+           
+          },
+      
       ],
     },
   ],

@@ -146,5 +146,31 @@ const openStatus = computed(() => store.getters["videos/getOpenStatus"]);
       </div>
       <p class="text-sm">Library</p>
     </button>
+    <button
+      class="bg-red-600	background-color: rgb(220 38 38); py-4 w-full flex flex-col items-center justify-center"
+    >
+      <div class="w-8 h-8 p1">
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="stroke-current fill-current style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="stroke-current fill-current style-scope yt-icon">
+            <path
+              d="M4,10V21h6V15h4v6h6V10L12,3Z"
+              class="stroke-current fill-current style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
+      </div>
+      <p class="text-sm">Users</p>
+    </button>
   </div>
 </template>
