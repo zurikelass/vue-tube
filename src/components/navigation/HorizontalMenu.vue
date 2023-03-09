@@ -38,9 +38,11 @@ onMounted(() => {});
           </svg>
         </div>
       </button>
-
+      <RouterLink to="/">
+        <button>
       <div class="logo ml-6">
         <div class="w-25">
+          
           <svg
             viewBox="0 0 100 30"
             preserveAspectRatio="xMidYMid meet"
@@ -104,6 +106,10 @@ onMounted(() => {});
           </svg>
         </div>
       </div>
+     </button>
+      </RouterLink>
+    
+      
     </div>
 
     <form>
@@ -203,7 +209,7 @@ onMounted(() => {});
       </RouterLink>
          <RouterLink to="/users">
           <button >
-           <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4"></div>
+           <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4">U</div>
         </button>
        
          </RouterLink>
