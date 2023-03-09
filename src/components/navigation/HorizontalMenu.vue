@@ -191,10 +191,23 @@ onMounted(() => {});
           </svg>
         </div>
       </button>
+      <RouterLink to="/register">
       <button >
+           <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-blue-500 ml-4">R</div>
+        </button>
+        </RouterLink>
+      <RouterLink to="/login">
+        <button >
+           <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-green-500 ml-4">L</div>
+        </button>
+      </RouterLink>
+         <RouterLink to="/users">
+          <button >
            <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4"></div>
         </button>
-      
+       
+         </RouterLink>
+  
     </div>
   </div>
   <div>
@@ -210,4 +223,5 @@ onMounted(() => {});
         {{ link }}
       </button>
     </div>
+  
 </template>
