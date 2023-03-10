@@ -8,7 +8,7 @@ export default {
     };
   },
   created() {
-    axios.get("https://items.magischer.de/api/users")
+    axios.get('https://items.magischer.de/api/users')
       .then((response) => {
         this.users = response.data;
         console.log(response.data)
