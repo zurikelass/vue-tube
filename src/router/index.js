@@ -23,23 +23,7 @@ const router = createRouter({
       name: "Category",
       component: () => import("../views/Category.vue"),
     },
-    {
-      path: "/settings",
-      name: "Settings",
-      component: () => import("../views/Settings.vue"),
-      children: [
-        {
-          path: "user",
-          name: "User",
-          component: () => import("../views/User.vue"),
-        },
-        {
-          path: "userupdate",
-          name: "UserUpdate",
-          component: () => import("../views/UserUpdate.vue"),
-        },
-      ],
-    },
+   
     {
       path: "/users",
       name: "Users",

@@ -1,35 +1,24 @@
-<script>
+<script setup>
 import axios from 'axios';
-
-export default {
-  data() {
-    return {
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    submitForm() {
-      const data = {
-        email: this.email,
-        password: this.password
-      };
-      
-      axios.post('https://items.magischer.de/api/auth/login', data)
-      .then(response => {
-        if(response.data.status){
-           this.$store.dispatch('register/token', response.data.token)
-              this.$router.push({ name: 'settings'})
-            }else{
-              this.$router.push({name: 'settings', params: 'error'})
-            }
-          })
-          .catch(error => {
-          });
-       
-    }
-  }
-}
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import {ref} from "vue";
+const store = useStore();
+const router = useRouter();
+const email = ref('');
+const password = ref('');
+const submitForm = async () => {
+  const data = {
+    email: email.value,
+    password: password.value,
+  };
+  await axios.post('/auth/login', data).then(response => {
+          if (response.data.status) {
+            store.dispatch('register/token', response.data);
+            router.push('/');
+          }
+        }).catch((e) => console.log(e));
+};
 </script>
 
 <template>

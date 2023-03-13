@@ -1,4 +1,4 @@
-const registerModule ={
+const registerModule = {
     namespaced: true,
     state(){
         return{
@@ -19,19 +19,17 @@ const registerModule ={
         TOKEN(state, payload) {
             state.token = payload
         },
-        register(state, user) {
+        REGISTER(state, user) {
             state.user.push(user)
 
         }
     },
     actions:{
-        token({commit}, token) {
+        TOKEN({commit}, token) {
             commit("TOKEN", token)
         },
-        register({commit}, info) {
-            commit("register", info)
-
-
+        REGISTER({commit}, info) {
+            commit("REGISTER", info)
         }
     },
 }
