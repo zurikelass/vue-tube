@@ -23,6 +23,7 @@ const router = createRouter({
       name: "Category",
       component: () => import("../views/Category.vue"),
     },
+
    
     {
       path: "/users",

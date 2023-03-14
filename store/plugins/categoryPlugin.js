@@ -1,7 +1,7 @@
-import categoryModule from '../modules/categoryModule'
 
-const categoryPlugin = (store) => {
-    store.categoryModule('category', categoryModule)
+import categories from "../modules/categories";
+
+const categoriesPlugin = (store) => {
+    store.registerModule('categories',categories)
 }
-
-export default categoryModule
+export default categoriesPlugin
