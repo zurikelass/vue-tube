@@ -1,14 +1,19 @@
 <script setup>
-
 import { useStore } from "vuex";
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
+
 const store = useStore();
+
+const types = ["news", "social", "product"];
+
+const name = ref();
+const type = ref();
 
 const categories = computed(() => { return store.getters['categories/getCategories'] });
 
 const deleteCategory = (id) => store.dispatch('categories/deleteCategory', id);
 const editCategory = () => { };
-//const addCategory = () => {};
+const addCategory = () => store.dispatch('categories/addCategory', { name, type });
 
 
 onMounted(() => {
@@ -20,6 +25,26 @@ onMounted(() => {
 
 <template>
   <div>
+    <div>
+      <form @submit.prevent="addCategory" class="flex m-[16px]">
+        <div>
+          <select v-model="type" id="categories"
+            class="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-tl-lg rounded-bl-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required>
+            <option v-for="type in types" :value="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="flex">
+          <input v-model="name" type="search" id="default-search"
+            class="block  pl-5 text-sm text-gray-900 border-gray-300 rounded-tr-lg rounded-br-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Name" required>
+          <button type="submit"
+            class="text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+        </div>
+      </form>
+    </div>
+
+
     <table class="table-auto">
       <thead>
         <tr>

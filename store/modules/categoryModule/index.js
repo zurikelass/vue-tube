@@ -35,7 +35,6 @@ const categoryModule = {
       await dispatch("getCategories");
     },
     async deleteCategory({ dispatch }, id) {
-      console.log(axios.defaults);
       await axios.delete(`/categories/${id}`).catch((e) => console.log(e));
       await dispatch("getCategories");
     },
