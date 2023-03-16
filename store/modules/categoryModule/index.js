@@ -1,84 +1,54 @@
 import axios from "axios";
 
+const token = localStorage.getItem("token");
+axios.defaults.headers["Authorization"] = `Bearer ${token}`;
 
 const categoryModule = {
-    namespaced: true,
-    state: {
-    
-      categories: []
+  namespaced: true,
+  state: {
+    categories: [],
+  },
+  getters: {
+    getCategories({ categories }) {
+      return categories;
     },
-    getters: {
-      getCategories(state){
-        return state.categories
+  },
+  mutations: {
+    SET_CATEGORIES(state, categories) {
+      state.categories = categories;
+    },
+  },
+  actions: {
+    async getCategories({ commit }) {
+      const res = await axios.get(`/categories`);
+      if (res.data.success) {
+        commit("SET_CATEGORIES", res.data.data);
       }
     },
-    mutations: {
-      setCategories(state, payload) {
-        
-        state.categories = payload;
-      },
-    },
-    actions: {
-      setCategories({commit}, info) {
-        commit("setCategories", info);
-      },
-      getCategoriesFromApi({commit}) {
-        axios.get('/categories')
-        .then (response => (response.data.success)? commit("setCategories", response.data.data) : null)
+    async addCategory({ dispatch }, { name, type }) {
+      await axios
+        .post(`/categories`, {
+          name,
+          type,
+        })
         .catch((e) => console.log(e));
-      },
-      async getUsers({commit, getters}) {
-        const res = await axios.get(`/categories`).catch(e => console.log(e));
-          if (res.data.success) {
-            commit("SAVE_USERS", res.data.data);
-          }
+      await dispatch("getCategories");
     },
-    async addCategory({getters, dispatch}, name) {
-        await axios.post(
-          `/categories`,
-          {
-            name,
-            type: "news",
-          },
-          {
-            headers: {
-                Accept: "application/json",
-                Authorization: `Bearer ${getters.token}`,
-            },
-          }
-        ).catch(e => console.log(e));
-        dispatch('getUsers');
-      },
-      async deleteCategory({getters, dispatch}, id) {
-         await axios.delete(
-          `/categories/${id}`,
-          {
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${getters.token}`,
-            },
-          }
-        ).catch(e => console.log(e));
-        dispatch('getUsers');
-      },
-      async editCategory({getters, dispatch}, user) {
-        await axios.put(
-          `/categories/${user.id}`,
-          {
-            name: user.name,
-            type: "news",
-          },
-          {
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${getters.token}`,
-            },
-          }
-        ).catch(e => console.log(e));
-        dispatch('getUsers');
-      },
+    async deleteCategory({ dispatch }, id) {
+      console.log(axios.defaults);
+      await axios.delete(`/categories/${id}`).catch((e) => console.log(e));
+      await dispatch("getCategories");
     },
-  };
-  
-  export default categoryModule;
-  
+    async editCategory({ dispatch }, user) {
+      await axios
+        .put(`/categories/${user.id}`, {
+          name: user.name,
+          type: "news",
+        })
+        .catch((e) => console.log(e));
+      await dispatch("getCategories");
+    },
+  },
+};
+
+export default categoryModule;
