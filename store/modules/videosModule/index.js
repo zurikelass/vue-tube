@@ -29,7 +29,7 @@ const videoModule = {
           tags: ["blog", "guns", "all"],
         },
         {
-          id: 2,
+          id: 4,
           url: "https://www.youtube.com/watch?v=2ZOuoN1XLcc&t=8s",
           title: "საეჭვო კაცი",
           description: "ვოიაჟრი",
@@ -38,7 +38,7 @@ const videoModule = {
         },
 
         {
-          id: 3,
+          id: 5,
           title: "იარაღის განხილვა",
           description: "ბატონი დავითის რჩევები",
           url: "https://www.youtube.com/watch?v=7FcrW1IkWiw",
