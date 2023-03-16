@@ -15,7 +15,7 @@ const categoryModule = {
   },
   mutations: {
     SET_CATEGORIES(state, categories) {
-      state.categories = categories;
+      state.categories = categories.map((v) => ({ ...v, editing: false }));
     },
   },
   actions: {
@@ -25,13 +25,12 @@ const categoryModule = {
         commit("SET_CATEGORIES", res.data.data);
       }
     },
-    async addCategory({ dispatch }, { name, type,  }) {
-      console.log(name,type)
+    async addCategory({ dispatch }, { name, type }) {
+      console.log(name, type);
       await axios
         .post(`/categories`, {
           name,
           type,
-          
         })
         .catch((e) => console.log(e));
       await dispatch("getCategories");
@@ -40,11 +39,11 @@ const categoryModule = {
       await axios.delete(`/categories/${id}`).catch((e) => console.log(e));
       await dispatch("getCategories");
     },
-    async editCategory({ dispatch }, user) {
+    async editCategory({ dispatch }, { id, name, type }) {
       await axios
-        .put(`/categories/${user.id}`, {
-          name: user.name,
-          type: "news",
+        .put(`/categories/${id}`, {
+          name,
+          type,
         })
         .catch((e) => console.log(e));
       await dispatch("getCategories");

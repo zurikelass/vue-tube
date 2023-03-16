@@ -8,12 +8,29 @@ const types = ["news", "social", "product"];
 
 const name = ref();
 const type = ref();
+const newName = ref();
 
 const categories = computed(() => { return store.getters['categories/getCategories'] });
 
-const deleteCategory = (id) => store.dispatch('categories/deleteCategory', id);
-const editCategory = () => { };
-const addCategory = () => store.dispatch('categories/addCategory', { name: name.value,type:  type.value });
+const deleteCategory = async (id) => await store.dispatch('categories/deleteCategory', id);
+
+const editCategory = async (category) => {
+  console.log(category);
+  if (category.editing) {
+    await store.dispatch("categories/editCategory", {
+      id: category.id,
+      name: newName.value,
+      type: category.type,
+    });
+    newName.value = null;
+  } else {
+    newName.value = category.name;
+  }
+
+  category.editing = !category.editing;
+};
+
+const addCategory = async () => await store.dispatch('categories/addCategory', { name: name.value, type: type.value });
 
 
 onMounted(() => {
@@ -54,15 +71,22 @@ onMounted(() => {
         </tr>
       </thead>
       <tbody v-if="categories.length">
-        <tr v-for="{ id, name, type } in categories" :key="id">
-          <td class="border px-4 py-2">{{ name }}</td>
-          <td class="border px-4 py-2">{{ id }}</td>
-          <td class="border px-4 py-2">{{ type }}</td>
+        <tr v-for="category in categories" :key="category.id">
+          <td class="border px-4 py-2">{{ category.name }}</td>
+          <td class="border px-4 py-2">{{ category.id }}</td>
+          <td class="border px-4 py-2">{{ category.type }}</td>
           <td class="border px-4 py-2">
-            <button @click="editCategory({ id, name, type })" style="background-color: lightgreen">Edit</button>
+            <div v-if="category.editing">
+              <input type="text" v-model="newName">
+              <button @click="editCategory(category)">Save</button>
+              <button @click="category.editing = !category.editing;">Cancel</button>
+            </div>
+            <button v-else @click="editCategory(category)" style="background-color: lightgreen"
+              class="p-[10px] rounded-[10px]">Edit</button>
           </td>
           <td class="border px-4 py-2">
-            <button @click="deleteCategory(id)" style="background-color: bisque">Delete</button>
+            <button @click="deleteCategory(category.id)" style="background-color: bisque"
+              class="p-[10px] rounded-[10px]">Delete</button>
           </td>
         </tr>
       </tbody>
