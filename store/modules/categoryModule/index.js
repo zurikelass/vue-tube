@@ -25,11 +25,13 @@ const categoryModule = {
         commit("SET_CATEGORIES", res.data.data);
       }
     },
-    async addCategory({ dispatch }, { name, type }) {
+    async addCategory({ dispatch }, { name, type,  }) {
+      console.log(name,type)
       await axios
         .post(`/categories`, {
           name,
           type,
+          
         })
         .catch((e) => console.log(e));
       await dispatch("getCategories");

@@ -13,7 +13,7 @@ const categories = computed(() => { return store.getters['categories/getCategori
 
 const deleteCategory = (id) => store.dispatch('categories/deleteCategory', id);
 const editCategory = () => { };
-const addCategory = () => store.dispatch('categories/addCategory', { name, type });
+const addCategory = () => store.dispatch('categories/addCategory', { name: name.value,type:  type.value });
 
 
 onMounted(() => {
