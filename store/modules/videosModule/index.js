@@ -5,26 +5,44 @@ const videoModule = {
       videos: [
         {
           id: 1,
-          title: "Katsebi",
-          description: "კაცები რომში",
           url: "https://www.youtube.com/watch?v=OXd1MJzsH5M",
+          title: "კაცები",
+          description: "კაცები რომში",
+
           tags: ["comedy", "blog", "all"],
         },
+        
         {
           id: 2,
+          url: "https://www.youtube.com/watch?v=2ZOuoN1XLcc&t=8s",
           title: "საეჭვო კაცი",
           description: "ვოიაჟრი",
-          url: "https://www.youtube.com/watch?v=2ZOuoN1XLcc&t=8s",
+
           tags: ["comedy", "blog", "guns", "all"],
         },
-        
-        { 
+
+        {
           id: 3,
           title: "იარაღის განხილვა",
           description: "ბატონი დავითის რჩევები",
           url: "https://www.youtube.com/watch?v=7FcrW1IkWiw",
           tags: ["blog", "guns", "all"],
-          
+        },
+        {
+          id: 2,
+          url: "https://www.youtube.com/watch?v=2ZOuoN1XLcc&t=8s",
+          title: "საეჭვო კაცი",
+          description: "ვოიაჟრი",
+
+          tags: ["comedy", "blog", "guns", "all"],
+        },
+
+        {
+          id: 3,
+          title: "იარაღის განხილვა",
+          description: "ბატონი დავითის რჩევები",
+          url: "https://www.youtube.com/watch?v=7FcrW1IkWiw",
+          tags: ["blog", "guns", "all"],
         },
       ],
       filteredVideos: [],
@@ -83,7 +101,5 @@ const videoModule = {
     },
   },
 };
-  
-
 
 export default videoModule;

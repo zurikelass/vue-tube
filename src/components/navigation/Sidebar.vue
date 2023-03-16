@@ -118,7 +118,7 @@ const openStatus = computed(() => store.getters["videos/getOpenStatus"]);
           </g>
         </svg>
       </div>
-      <p class="text-sm">Inscription</p>
+      <p class="text-sm">Description</p>
     </button>
     <button
       class="hover:bg-gray-100 dark:hover:bg-dark-300 py-4 w-full flex flex-col items-center justify-center"

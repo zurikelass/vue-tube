@@ -207,7 +207,7 @@ onMounted(() => {});
            <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-green-500 ml-4">L</div>
         </button>
       </RouterLink>
-         <RouterLink to="/users">
+         <RouterLink to="/category">
           <button >
            <div class="avatar w-8 h-8 rounded-full overflow-hidden bg-red-500 ml-4">U</div>
         </button>
