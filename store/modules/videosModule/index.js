@@ -17,12 +17,14 @@ const videoModule = {
           url: "https://www.youtube.com/watch?v=2ZOuoN1XLcc&t=8s",
           tags: ["comedy", "blog", "guns", "all"],
         },
-        {
+        
+        { 
           id: 3,
           title: "იარაღის განხილვა",
           description: "ბატონი დავითის რჩევები",
           url: "https://www.youtube.com/watch?v=7FcrW1IkWiw",
           tags: ["blog", "guns", "all"],
+          
         },
       ],
       filteredVideos: [],
@@ -81,5 +83,7 @@ const videoModule = {
     },
   },
 };
+  
+
 
 export default videoModule;

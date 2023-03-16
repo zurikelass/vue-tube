@@ -1,12 +1,28 @@
-import state from "./state";
-import getters from "./getters";
-import actions from "./actions";
-
-const categories = {
+const categoryModule = {
     namespaced: true,
-    state,
-    getters,
-    actions
-}
-
-export default categories
+    state: {
+    
+      categories: []
+    },
+    getters: {
+      getCategories(state){
+        return state.categories
+      }
+    },
+    mutations: {
+      setCategories(state, payload) {
+        
+        state.categories = payload;
+      },
+    },
+    actions: {
+    
+      setCategories({commit}, info) {
+    
+        commit("setCategories", info);
+      }
+    },
+  };
+  
+  export default categoryModule;
+  

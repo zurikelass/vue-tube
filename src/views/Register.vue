@@ -14,10 +14,10 @@ const submitForm = async () => {
     email: email.value,
     password: password.value,
   };
-  await axios.post('/auth/register', data).then(response => {
+  await axios.post('auth/register', data).then(response => {
       if (response.data.status) {
-        store.dispatch('register/token', response.data);
-        router.push('/');
+        store.dispatch('users/setToken', response.data.token);
+        
       }
     }).catch((e) => console.log(e));
 }
