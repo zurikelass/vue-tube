@@ -76,10 +76,10 @@ onMounted(() => {
           <td class="border px-4 py-2">{{ category.id }}</td>
           <td class="border px-4 py-2">{{ category.type }}</td>
           <td class="border px-4 py-2">
-            <div v-if="category.editing">
-              <input type="text" v-model="newName">
-              <button @click="editCategory(category)">Save</button>
-              <button @click="category.editing = !category.editing;">Cancel</button>
+            <div class="m-[7px]" v-if="category.editing">
+              <input class="outline-none border" type="text" v-model="newName">
+              <button @click="editCategory(category)" class="p-[10px] bg-blue-400 rounded-md">Save</button>
+              <button @click="category.editing = !category.editing;"  class="p-[10px] m-[5px] bg-red-400 rounded-md">Cancel</button>
             </div>
             <button v-else @click="editCategory(category)" style="background-color: lightgreen"
               class="p-[10px] rounded-[10px]">Edit</button>
